@@ -1,12 +1,12 @@
 import classes from './Post.module.css';
 
-const Post = () => {
+const Post = (props) => {
     return (
         <div className={classes.item}>
             <img src='https://place-hold.it/50' />
-            Some body text in my post!
+            {props.message}
             <div>
-                <span>like</span>
+                {props.likesCount}<span> like</span>
             </div>
         </div>
     );
