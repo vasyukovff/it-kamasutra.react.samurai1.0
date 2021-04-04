@@ -1,7 +1,7 @@
 import './App.css';
-import Header from './components/Header';
-import Navbar from './components/Nav';
-import Profile from './components/Profile';
+import Header from './components/main/Header';
+import Navbar from './components/main/Navbar';
+import Profile from './components/profile/Profile';
 
 
 

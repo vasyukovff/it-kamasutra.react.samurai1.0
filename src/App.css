@@ -11,18 +11,3 @@
   grid-template-columns: 2fr 10fr;
   /* grid-gap: 10px; */
 }
-
-.header {
-  grid-area: header;
-  background-color: rgba(0, 128, 0, 0.158);
-}
-
-.nav {
-  grid-area: nav;
-  background-color: rgba(107, 0, 0, 0.397);
-}
-
-.content {
-  grid-area: content;
-  background-color: rgba(18, 18, 168, 0.336);
-}
