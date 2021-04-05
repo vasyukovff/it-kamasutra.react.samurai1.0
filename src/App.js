@@ -4,8 +4,8 @@ import Dialogs from './components/dialogs/Dialogs';
 import Header from './components/main/Header';
 import Navbar from './components/main/Navbar';
 import Profile from './components/profile/Profile';
-import News from './components/News/News';
-import Music from './components/Music/Music';
+import News from './components/news/News';
+import Music from './components/music/Music';
 
 
 
