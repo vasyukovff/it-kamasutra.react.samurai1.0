@@ -1,15 +1,11 @@
 import MyPosts from './MyPosts/MyPosts';
 import classes from './Profile.module.css';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = () => {
     return (
         <div>
-            <div>
-                <img src="https://place-hold.it/900x100" />
-            </div>
-            <div>
-                ava + desc
-            </div>
+            <ProfileInfo />
             <MyPosts />
         </div>
     );
