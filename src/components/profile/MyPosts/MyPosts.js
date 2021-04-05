@@ -1,29 +1,32 @@
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
+import { GetPosts } from './../../../utils/index';
+import React from 'react';
 
 const MyPosts = () => {
 
-    let postsData = [
-        { id: 1, message: 'this is post 1', likesCount: 15 },
-        { id: 2, message: 'this is post 2', likesCount: 16 },
-        { id: 3, message: 'this is post 3', likesCount: 17 },
-        { id: 4, message: 'this is post 4', likesCount: 18 },
-    ];
+    let postsData = GetPosts();
+    
+    let contentNewPost = React.createRef();
+
+    const btnAddPost = () => {
+        alert(contentNewPost.current.value);
+    };
 
     return (
         <div className={classes.postBlock}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea ref={contentNewPost}></textarea>
                 </div>
                 <div>
-                    <button>Add post</button>
+                    <button onClick={btnAddPost}>Add post</button>
                 </div>
             </div>
             <div className={classes.posts}>
                 {
-                    postsData.map(post => { return <Post {...post} /> })
+                     postsData.map(post => { return <Post {...post} /> })
                 }
             </div>
         </div>
