@@ -1,0 +1,7 @@
+.dialog a{
+    color:rgb(85, 85, 85);
+}
+
+.dialog .active{
+    color: tomato;
+}
