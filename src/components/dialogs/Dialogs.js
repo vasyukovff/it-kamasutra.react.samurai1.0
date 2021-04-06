@@ -2,7 +2,6 @@ import classes from './Dialogs.module.css';
 import React from 'react';
 import DialogItem from './dialogItem/DialogItem';
 import MessageItem from './messageItem/MessageItem';
-import { GetDialogs, GetMessages } from './../../utils/index';
 
 const Dialogs = (props) => {
     let textNewMessage = React.createRef();

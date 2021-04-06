@@ -1,5 +1,3 @@
-import { render } from './render';
-
 export let state = {
     profilePage: {
         posts: [
@@ -28,6 +26,13 @@ export let state = {
     }
 }
 
+export const subscribe = (observer) => {
+    render = observer;
+}
+
+let render = () => {
+    console.log("State changed");
+}
 
 export let addPost = () => {
     let newPost = {
@@ -39,7 +44,7 @@ export let addPost = () => {
     state.profilePage.posts.push(newPost);
     state.profilePage.textNewPost = '';
 
-    render(state);
+    render();
 }
 
 export let addMessage = () => {
@@ -51,16 +56,16 @@ export let addMessage = () => {
     state.dialogsPage.messages.push(newMessage);
     state.dialogsPage.textNewMessage = '';
 
-    render(state);
+    render();
 }
 
 export let changeTextNewMessage = (textNewMessage) => {
     state.dialogsPage.textNewMessage = textNewMessage;
-    render(state);
+    render();
 }
 
 
 export let changeTextNewPost = (textNewPost) => {
     state.profilePage.textNewPost = textNewPost;
-    render(state);
+    render();
 }
