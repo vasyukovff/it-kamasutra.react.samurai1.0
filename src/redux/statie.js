@@ -23,7 +23,8 @@ export let state = {
             { id: 2, message: 'message text 2' },
             { id: 3, message: 'message text 3' },
             { id: 4, message: 'message text 4' }
-        ]
+        ],
+        textNewMessage: ''
     }
 }
 
@@ -38,6 +39,23 @@ export let addPost = () => {
     state.profilePage.posts.push(newPost);
     state.profilePage.textNewPost = '';
 
+    render(state);
+}
+
+export let addMessage = () => {
+    let newMessage = {
+        id: 5,
+        message: state.dialogsPage.textNewMessage
+    };
+
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.textNewMessage = '';
+
+    render(state);
+}
+
+export let changeTextNewMessage = (textNewMessage) => {
+    state.dialogsPage.textNewMessage = textNewMessage;
     render(state);
 }
 
