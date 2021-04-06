@@ -9,16 +9,22 @@ const MyPosts = (props) => {
     let contentNewPost = React.createRef();
 
     const btnAddPost = () => {
-        props.callbackAddPost(contentNewPost.current.value);
-        contentNewPost.current.value = '';
+        props.callbackAddPost();
+        // contentNewPost.current.value = '';
     };
+
+
+    const textareaOnChange = () =>
+    {
+        props.callbackChangeTextNewPost(contentNewPost.current.value);
+    }
 
     return (
         <div className={classes.postBlock}>
-            <h3>My posts</h3>
+            <h3>My posts + {props.textNewPost}</h3>
             <div>
                 <div>
-                    <textarea ref={contentNewPost}></textarea>
+                    <textarea ref={contentNewPost} onChange={textareaOnChange} value={props.textNewPost}/>
                 </div>
                 <div>
                     <button onClick={btnAddPost}>Add post</button>

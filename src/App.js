@@ -17,7 +17,7 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path="/profile" render={() => {return <Profile posts={props.state.profilePage} callbackAddPost={props.callbackAddPost}/>}} />
+          <Route path="/profile" render={() => {return <Profile posts={props.state.profilePage} callbackAddPost={props.callbackAddPost} callbackChangeTextNewPost={props.callbackChangeTextNewPost}/>}} />
           <Route path="/dialogs" render={() => {return <Dialogs state={props.state.dialogsPage}/>}} />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />
