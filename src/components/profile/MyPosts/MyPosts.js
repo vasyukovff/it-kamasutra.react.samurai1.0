@@ -3,14 +3,14 @@ import Post from './Post/Post';
 import { GetPosts } from './../../../utils/index';
 import React from 'react';
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+    // let postsData = GetPosts();
 
-    let postsData = GetPosts();
-    
     let contentNewPost = React.createRef();
 
     const btnAddPost = () => {
-        alert(contentNewPost.current.value);
+        props.callbackAddPost(contentNewPost.current.value);
+        contentNewPost.current.value = '';
     };
 
     return (
@@ -26,7 +26,7 @@ const MyPosts = () => {
             </div>
             <div className={classes.posts}>
                 {
-                     postsData.map(post => { return <Post {...post} /> })
+                     props.posts.map(post => { return <Post {...post} /> })
                 }
             </div>
         </div>
