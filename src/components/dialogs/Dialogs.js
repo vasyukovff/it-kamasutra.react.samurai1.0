@@ -18,20 +18,20 @@ const Dialogs = (props) => {
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
                 {
-                    props.state.dialogs.map(dialog => { return <DialogItem {...dialog} /> })
+                    props.dialogs.map(dialog => { return <DialogItem {...dialog} /> })
                 }
             </div>
             <div className={classes.messages}>
                 {
-                    props.state.messages.map(message => { return <MessageItem {...message} /> })
+                    props.messages.map(message => { return <MessageItem {...message} /> })
                 }
                 <div>
                     <div>
-                        <textarea ref={textNewMessage} onChange={textareaOnChange} value={props.state.textNewMessage}/>
+                        <textarea ref={textNewMessage} onChange={textareaOnChange} value={props.textNewMessage}/>
                     </div>
                     <div>
                         <button onClick={btnAddMessage}>Add new message</button>
-                        <span>{props.state.textNewMessage}</span>
+                        <span>{props.textNewMessage}</span>
                     </div>
                 </div>
             </div>

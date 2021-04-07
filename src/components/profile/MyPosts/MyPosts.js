@@ -4,6 +4,7 @@ import { GetPosts } from './../../../utils/index';
 import React from 'react';
 
 const MyPosts = (props) => {
+    // debugger;
     // let postsData = GetPosts();
 
     let contentNewPost = React.createRef();

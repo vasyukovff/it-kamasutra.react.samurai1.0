@@ -17,13 +17,16 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path="/profile" render={() => {return <Profile posts={props.state.profilePage} 
-                                                                callbackAddPost={props.callbackAddPost} 
-                                                                callbackChangeTextNewPost={props.callbackChangeTextNewPost}/>}} />
+        <Route path="/profile" render={() => {return <Profile posts={props.store.getPosts()}
+                                                              textNewPost={props.store.getTextNewPost()} 
+                                                              callbackAddPost={props.store.addPost.bind(props.store)} 
+                                                              callbackChangeTextNewPost={props.store.changeTextNewPost.bind(props.store)}/>}} />
                                                                 
-          <Route path="/dialogs" render={() => {return <Dialogs state={props.state.dialogsPage} 
-                                                                callbackAddMessage={props.callbackAddMessage}
-                                                                callbackChangeTextNewMessage={props.callbackChangeTextNewMessage}/>}} />
+          <Route path="/dialogs" render={() => {return <Dialogs dialogs={props.store.getDialogs()}
+                                                                messages={props.store.getMessages()} 
+                                                                textNewMessage={props.store.getTextNewMessage()}
+                                                                callbackAddMessage={props.store.addMessage.bind(props.store)}
+                                                                callbackChangeTextNewMessage={props.store.changeTextNewMessage.bind(props.store)}/>}} />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />
         </div>

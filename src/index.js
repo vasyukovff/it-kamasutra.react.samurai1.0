@@ -1,5 +1,6 @@
 import reportWebVitals from './reportWebVitals';
-import {state, addPost, changeTextNewPost, addMessage, changeTextNewMessage, subscribe} from './redux/statie'
+// import {state, addPost, changeTextNewPost, addMessage, changeTextNewMessage, subscribe} from './redux/statie'
+import {store} from './redux/statie';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -8,10 +9,11 @@ import App from './App';
 export const render = () => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} callbackAddPost={addPost} 
+            {/* <App state={state} callbackAddPost={addPost} 
                             callbackChangeTextNewPost={changeTextNewPost} 
                             callbackAddMessage={addMessage}
-                            callbackChangeTextNewMessage={changeTextNewMessage}/>
+                            callbackChangeTextNewMessage={changeTextNewMessage}/> */}
+                <App store={store}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
@@ -19,7 +21,7 @@ export const render = () => {
 
 render();
 
-subscribe(render);
+store.subscribe(render);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
