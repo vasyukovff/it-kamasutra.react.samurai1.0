@@ -19,14 +19,12 @@ const App = (props) => {
         <div className="app-wrapper-content">
         <Route path="/profile" render={() => {return <Profile posts={props.store.getPosts()}
                                                               textNewPost={props.store.getTextNewPost()} 
-                                                              callbackAddPost={props.store.addPost.bind(props.store)} 
-                                                              callbackChangeTextNewPost={props.store.changeTextNewPost.bind(props.store)}/>}} />
+                                                              dispatch={props.store.dispatch.bind(props.store)}/>}} />
                                                                 
           <Route path="/dialogs" render={() => {return <Dialogs dialogs={props.store.getDialogs()}
                                                                 messages={props.store.getMessages()} 
                                                                 textNewMessage={props.store.getTextNewMessage()}
-                                                                callbackAddMessage={props.store.addMessage.bind(props.store)}
-                                                                callbackChangeTextNewMessage={props.store.changeTextNewMessage.bind(props.store)}/>}} />
+                                                                dispatch={props.store.dispatch.bind(props.store)}/>}} />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />
         </div>

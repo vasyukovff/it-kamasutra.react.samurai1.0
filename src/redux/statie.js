@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const CHANGE_TEXT_NEW_POST = 'CHANGE-TEXT-NEW-POST';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const CHANGE_TEXT_NEW_MESSAGE = 'CHANGE-TEXT-NEW-MESSAGE';
+
 export let store = {
     _state: {
         profilePage: {
@@ -50,7 +55,7 @@ export let store = {
         return this._state.dialogsPage.textNewMessage;
     },
     /* PUSH/ADD IN STATE */
-    addPost(){
+    _addPost_OLD(){
         let newPost = {
             id: 5,
             message: this._state.profilePage.textNewPost,
@@ -62,7 +67,7 @@ export let store = {
     
         this._subscriber();
     },
-    addMessage(){
+    _addMessage_OLD(){
         let newMessage = {
             id: 5,
             message: this._state.dialogsPage.textNewMessage
@@ -74,14 +79,49 @@ export let store = {
         this._subscriber();
     },
     /* CHANGE TEXT INPUT (TEXTAREA...) IN STATE */
-    changeTextNewPost(textNewPost){
+    _changeTextNewPos_OLD(textNewPost){
         this._state.profilePage.textNewPost = textNewPost;
         this._subscriber();
     },
-    changeTextNewMessage(textNewMessage){
+    _changeTextNewMessage_OLD(textNewMessage){
         this._state.dialogsPage.textNewMessage = textNewMessage;
         this._subscriber();
+    },
+    dispatch(action){
+        if(action.type === ADD_POST){
+            this._addPost_OLD();
+        } else if (action.type === CHANGE_TEXT_NEW_POST) {
+            this._changeTextNewPos_OLD(action.text);
+        }else if(action.type === ADD_MESSAGE){
+            this._addMessage_OLD();
+        } else if (action.type === CHANGE_TEXT_NEW_MESSAGE) {
+            this._changeTextNewMessage_OLD(action.text);
+        }
     }
 }
+
+export const CreateActionAddPost = () => ({
+        type: ADD_POST
+    })
+
+export const CreateActionChangeTextNewPost = (textNewPost) => ({
+        type: CHANGE_TEXT_NEW_POST,
+        text: textNewPost
+    })
+
+export const CreateActionAddMessage = () => ({
+        type: ADD_MESSAGE
+    })
+
+export const CreateActionChangeTextNewMessage = (textNewMessage) => ({
+        type: CHANGE_TEXT_NEW_MESSAGE,
+        text: textNewMessage
+    })
+
+export const fake = (textNewMessage) =>({
+        type: CHANGE_TEXT_NEW_MESSAGE,
+        text: textNewMessage
+    })
+
 
 window.store = store;

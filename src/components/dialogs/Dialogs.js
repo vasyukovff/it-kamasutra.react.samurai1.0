@@ -2,16 +2,17 @@ import classes from './Dialogs.module.css';
 import React from 'react';
 import DialogItem from './dialogItem/DialogItem';
 import MessageItem from './messageItem/MessageItem';
+import { CreateActionAddMessage, CreateActionChangeTextNewMessage } from '../../redux/statie';
 
 const Dialogs = (props) => {
     let textNewMessage = React.createRef();
 
     const btnAddMessage = () => {
-        props.callbackAddMessage();
+        props.dispatch(CreateActionAddMessage());
     }
 
     const textareaOnChange = () => {
-        props.callbackChangeTextNewMessage(textNewMessage.current.value);
+        props.dispatch(CreateActionChangeTextNewMessage(textNewMessage.current.value));
     }
 
     return (

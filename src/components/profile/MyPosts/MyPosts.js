@@ -2,6 +2,7 @@ import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 import { GetPosts } from './../../../utils/index';
 import React from 'react';
+import {CreateActionAddPost, CreateActionChangeTextNewPost} from './../../../redux/statie'
 
 const MyPosts = (props) => {
     // debugger;
@@ -10,14 +11,14 @@ const MyPosts = (props) => {
     let contentNewPost = React.createRef();
 
     const btnAddPost = () => {
-        props.callbackAddPost();
+        props.dispatch(CreateActionAddPost());
         // contentNewPost.current.value = '';
     };
 
 
     const textareaOnChange = () =>
     {
-        props.callbackChangeTextNewPost(contentNewPost.current.value);
+        props.dispatch(CreateActionChangeTextNewPost(contentNewPost.current.value));
     }
 
     return (
