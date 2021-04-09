@@ -2,7 +2,7 @@ import classes from './Dialogs.module.css';
 import React from 'react';
 import DialogItem from './dialogItem/DialogItem';
 import MessageItem from './messageItem/MessageItem';
-import { CreateActionAddMessage, CreateActionChangeTextNewMessage } from '../../redux/statie';
+import { CreateActionAddMessage, CreateActionChangeTextNewMessage } from '../../redux/dialogs-reducer';
 
 const Dialogs = (props) => {
     let textNewMessage = React.createRef();
@@ -11,8 +11,9 @@ const Dialogs = (props) => {
         props.dispatch(CreateActionAddMessage());
     }
 
-    const textareaOnChange = () => {
-        props.dispatch(CreateActionChangeTextNewMessage(textNewMessage.current.value));
+    const textareaOnChange = (e) => {
+        // props.dispatch(CreateActionChangeTextNewMessage(textNewMessage.current.value));
+        props.dispatch(CreateActionChangeTextNewMessage(e.target.value));
     }
 
     return (

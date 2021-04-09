@@ -2,7 +2,7 @@ import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 import { GetPosts } from './../../../utils/index';
 import React from 'react';
-import {CreateActionAddPost, CreateActionChangeTextNewPost} from './../../../redux/statie'
+import {CreateActionAddPost, CreateActionChangeTextNewPost} from './../../../redux/profile-reducer'
 
 const MyPosts = (props) => {
     // debugger;
