@@ -1,6 +1,6 @@
 import reportWebVitals from './reportWebVitals';
 // import {state, addPost, changeTextNewPost, addMessage, changeTextNewMessage, subscribe} from './redux/statie'
-import {store} from './redux/statie';
+import {store} from './redux/store';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
