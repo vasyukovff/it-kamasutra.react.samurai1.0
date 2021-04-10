@@ -5,6 +5,7 @@ import MessageItem from './messageItem/MessageItem';
 import { CreateActionAddMessage, CreateActionChangeTextNewMessage } from '../../redux/dialogs-reducer';
 
 const Dialogs = (props) => {
+    debugger;
     let textNewMessage = React.createRef();
 
     const btnAddMessage = () => {
@@ -20,12 +21,12 @@ const Dialogs = (props) => {
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
                 {
-                    props.dialogs.map(dialog => { return <DialogItem {...dialog} /> })
+                    props.state.dialogs.map(dialog => { return <DialogItem {...dialog} /> })
                 }
             </div>
             <div className={classes.messages}>
                 {
-                    props.messages.map(message => { return <MessageItem {...message} /> })
+                    props.state.messages.map(message => { return <MessageItem {...message} /> })
                 }
                 <div>
                     <div>
