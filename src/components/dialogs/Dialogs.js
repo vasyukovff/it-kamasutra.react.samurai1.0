@@ -5,7 +5,6 @@ import MessageItem from './messageItem/MessageItem';
 import { CreateActionAddMessage, CreateActionChangeTextNewMessage } from '../../redux/dialogs-reducer';
 
 const Dialogs = (props) => {
-    debugger;
     let textNewMessage = React.createRef();
 
     const btnAddMessage = () => {
@@ -34,7 +33,7 @@ const Dialogs = (props) => {
                     </div>
                     <div>
                         <button onClick={btnAddMessage}>Add new message</button>
-                        <span>{props.textNewMessage}</span>
+                        <span>{props.state.textNewMessage}</span>
                     </div>
                 </div>
             </div>
