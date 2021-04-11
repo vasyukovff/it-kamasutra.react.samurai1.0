@@ -1,24 +1,17 @@
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
-import { GetPosts } from './../../../utils/index';
 import React from 'react';
-import {CreateActionAddPost, CreateActionChangeTextNewPost} from './../../../redux/profile-reducer'
 
 const MyPosts = (props) => {
-    // debugger;
-    // let postsData = GetPosts();
-
-    let contentNewPost = React.createRef();
 
     const btnAddPost = () => {
-        props.dispatch(CreateActionAddPost());
-        // contentNewPost.current.value = '';
+        props.onAddPost();
     };
 
 
-    const textareaOnChange = () =>
+    const textareaOnChange = (e) =>
     {
-        props.dispatch(CreateActionChangeTextNewPost(contentNewPost.current.value));
+        props.onTextareaOnChange(e.target.value);
     }
 
     return (
@@ -26,7 +19,7 @@ const MyPosts = (props) => {
             <h3>My posts + {props.textNewPost}</h3>
             <div>
                 <div>
-                    <textarea ref={contentNewPost} onChange={textareaOnChange} value={props.textNewPost}/>
+                    <textarea onChange={textareaOnChange} value={props.textNewPost}/>
                 </div>
                 <div>
                     <button onClick={btnAddPost}>Add post</button>

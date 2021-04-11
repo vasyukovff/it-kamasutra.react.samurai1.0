@@ -6,6 +6,7 @@ import Navbar from './components/main/Navbar';
 import Profile from './components/profile/Profile';
 import News from './components/news/News';
 import Music from './components/music/Music';
+import DialogsContainer from './components/dialogs/DialogsContainer';
 
 
 
@@ -17,11 +18,8 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-        <Route path="/profile" render={() => {return <Profile state={props.store.getState().profilePage}
-                                                              dispatch={props.store.dispatch.bind(props.store)}/>}} />
-                                                                
-          <Route path="/dialogs" render={() => {return <Dialogs state={props.store.getState().dialogsPage}
-                                                                dispatch={props.store.dispatch.bind(props.store)}/>}} />
+          <Route path="/profile" render={() => { return <Profile store={props.store} /> }} />
+          <Route path="/dialogs" render={() => { return <DialogsContainer store={props.store} /> }} />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />
         </div>
