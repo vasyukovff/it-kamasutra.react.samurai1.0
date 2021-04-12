@@ -5,15 +5,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import StoreContext from './StoreContext';
 
 export const render = () => {
     ReactDOM.render(
         <React.StrictMode>
-            {/* <App state={state} callbackAddPost={addPost} 
-                            callbackChangeTextNewPost={changeTextNewPost} 
-                            callbackAddMessage={addMessage}
-                            callbackChangeTextNewMessage={changeTextNewMessage}/> */}
-                <App store={store}/>
+            <StoreContext.Provider value={store}>
+                <App />
+            </StoreContext.Provider>
         </React.StrictMode>,
         document.getElementById('root')
     );
