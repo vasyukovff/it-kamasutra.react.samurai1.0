@@ -27,7 +27,7 @@ const MyPosts = (props) => {
             </div>
             <div className={classes.posts}>
                 {
-                     props.posts.map(post => { return <Post {...post} /> })
+                     props.posts.map(post => { return <Post {...post} key={post.id}/> })
                 }
             </div>
         </div>

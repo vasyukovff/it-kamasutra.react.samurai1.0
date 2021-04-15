@@ -13,8 +13,9 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
-    const result = {...state};
-    result.posts = [...state.posts];
+    const result = {
+        ...state
+    };
 
     switch (action.type) {
         case ADD_POST:
@@ -24,7 +25,7 @@ const profileReducer = (state = initialState, action) => {
                 likesCount: 0
             };
 
-            result.posts.push(newPost);
+            result.posts = [...state.posts, newPost];
             result.textNewPost = '';
             break;
         case CHANGE_TEXT_NEW_POST:

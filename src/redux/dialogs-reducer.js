@@ -19,8 +19,9 @@ let initialState = {
 };
 
 const dialogsReducer = (state = initialState, action) => {
-    const result = {...state}; // Поверхностное копирование
-    result.messages = [...state.messages]; // Глубокое копирование
+    const result = {
+        ...state
+    };
 
     switch (action.type) {
         case ADD_MESSAGE:
@@ -29,7 +30,7 @@ const dialogsReducer = (state = initialState, action) => {
                 message: result.textNewMessage
             };
 
-            result.messages.push(newMessage);
+            result.messages = [...state.messages, newMessage];
             result.textNewMessage = '';
             break;
         case CHANGE_TEXT_NEW_MESSAGE:
