@@ -3,7 +3,7 @@ const UserItem = (props) => {
         <div>
             <span>
                 <div>
-                    <img src={props.photoUrl} />
+                    <img src={props.photos.small != null ? props.photos.small : 'https://place-hold.it/50'} />
                 </div>
                 <div>
                     {
@@ -15,12 +15,12 @@ const UserItem = (props) => {
             </span>
             <span>
                 <span>
-                    <div>{props.fullName}</div>
+                    <div>{props.name}</div>
                     <div>{props.status}</div>
                 </span>
                 <span>
-                    <div>{props.location.city}</div>
-                    <div>{props.location.country}</div>
+                    <div>{"props.location.city"}</div>
+                    <div>{"props.location.country"}</div>
                 </span>
             </span>
         </div>
