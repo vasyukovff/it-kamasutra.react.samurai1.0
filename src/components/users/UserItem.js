@@ -1,9 +1,11 @@
+import UserDefaultPhoto from '../../assets/images/user.png';
+
 const UserItem = (props) => {
     return (
         <div>
             <span>
                 <div>
-                    <img src={props.photos.small != null ? props.photos.small : 'https://place-hold.it/50'} />
+                    <img src={props.photos.small != null ? props.photos.small : 'https://place-hold.it/50' /*UserDefaultPhoto*/} />
                 </div>
                 <div>
                     {
