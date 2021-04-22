@@ -1,4 +1,5 @@
 import UserDefaultPhoto from '../../assets/images/user.png';
+import { NavLink } from 'react-router-dom';
 
 const UserItem = (props) => {
     return (
@@ -17,7 +18,9 @@ const UserItem = (props) => {
             </span>
             <span>
                 <span>
-                    <div>{props.name}</div>
+                    <NavLink to={'/profile/' + props.id}>
+                        <div>{props.name}</div>
+                    </NavLink>
                     <div>{props.status}</div>
                 </span>
                 <span>

@@ -2,11 +2,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/main/Header';
 import Navbar from './components/main/Navbar';
-import Profile from './components/profile/Profile';
 import News from './components/news/News';
 import Music from './components/music/Music';
 import DialogsContainer from './components/dialogs/DialogsContainer';
 import UsersContainer from './components/users/UsersContainer';
+import ProfileContainer from './components/profile/ProfileContainer';
 
 
 
@@ -18,7 +18,7 @@ const App = () => {
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path="/profile" render={() => { return <Profile /> }} />
+          <Route path="/profile" render={() => { return <ProfileContainer /> }} />
           <Route path="/dialogs" render={() => { return <DialogsContainer /> }} />
           <Route path="/users" render={() => {return <UsersContainer />}} />
           <Route path="/news" component={News} />

@@ -1,6 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const CHANGE_TEXT_NEW_POST = 'CHANGE-TEXT-NEW-POST';
-
+const SET_PROFILE = 'SET-PROFILE';
 
 let initialState = {
     posts: [
@@ -9,32 +9,37 @@ let initialState = {
         { id: 3, message: 'this is post 3', likesCount: 17 },
         { id: 4, message: 'this is post 4', likesCount: 18 }
     ],
-    textNewPost: ''
+    textNewPost: '',
+    profile: null
 };
 
 const profileReducer = (state = initialState, action) => {
-    const result = {
-        ...state
-    };
-
     switch (action.type) {
         case ADD_POST:
             let newPost = {
                 id: 5,
-                message: result.textNewPost,
+                message: action.textNewPost,
                 likesCount: 0
             };
 
-            result.posts = [...state.posts, newPost];
-            result.textNewPost = '';
-            break;
+            return {
+                ...state,
+                posts: [...state.posts, newPost],
+                textNewPost: ''
+            }
         case CHANGE_TEXT_NEW_POST:
-            result.textNewPost = action.text;
-            break;
+            return{
+                ...state,
+                textNewPost: action.text
+            }
+        case SET_PROFILE:
+            return{
+                ...state,
+                profile: action.profile
+            }
         default:
-            break;
+            return state;
     }
-    return result;
 }
 
 export const onAddPost = () => ({
@@ -46,5 +51,9 @@ export const onTextareaOnChange = (textNewPost) => ({
     text: textNewPost
 })
 
+export const onSetProfile = (profile) => ({
+    type: SET_PROFILE,
+    profile: profile
+})
 
 export default profileReducer;
