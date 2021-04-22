@@ -37,11 +37,11 @@ const profileReducer = (state = initialState, action) => {
     return result;
 }
 
-export const CreateActionAddPost = () => ({
+export const onAddPost = () => ({
     type: ADD_POST
 })
 
-export const CreateActionChangeTextNewPost = (textNewPost) => ({
+export const onTextareaOnChange = (textNewPost) => ({
     type: CHANGE_TEXT_NEW_POST,
     text: textNewPost
 })

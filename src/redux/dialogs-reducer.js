@@ -42,11 +42,11 @@ const dialogsReducer = (state = initialState, action) => {
     return result;
 }
 
-export const CreateActionAddMessage = () => ({
+export const onAddMessage = () => ({
     type: ADD_MESSAGE
 })
 
-export const CreateActionChangeTextNewMessage = (textNewMessage) => ({
+export const onTextareaOnChange = (textNewMessage) => ({
     type: CHANGE_TEXT_NEW_MESSAGE,
     text: textNewMessage
 })

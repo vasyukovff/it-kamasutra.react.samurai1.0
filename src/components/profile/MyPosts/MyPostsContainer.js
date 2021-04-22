@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreateActionAddPost, CreateActionChangeTextNewPost } from './../../../redux/profile-reducer'
+import { onAddPost, onTextareaOnChange } from './../../../redux/profile-reducer'
 import MyPosts from './MyPosts';
 import { connect } from 'react-redux';
 
@@ -10,17 +10,17 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return{
-        onAddPost: () => {
-            dispatch(CreateActionAddPost());
-        },
-        onTextareaOnChange: (text) => {
-            dispatch(CreateActionChangeTextNewPost(text));
-        }
-    }
-}
+// let mapDispatchToProps = (dispatch) => {
+//     return{
+//         onAddPost: () => {
+//             dispatch(CreateActionAddPost());
+//         },
+//         onTextareaOnChange: (text) => {
+//             dispatch(CreateActionChangeTextNewPost(text));
+//         }
+//     }
+// }
 
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
+const MyPostsContainer = connect(mapStateToProps, {onAddPost, onTextareaOnChange})(MyPosts);
 
 export default MyPostsContainer;
