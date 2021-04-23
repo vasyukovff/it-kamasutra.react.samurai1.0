@@ -6,7 +6,12 @@ let Users = (props) => {
     let pageCount = Math.ceil(props.totalCount / props.pageSize);
 
     let pages = [];
-    for(let i = 1; i <= pageCount && i < 10; i++)
+
+    let test = props.currentPage - 4;
+    if(test < 1)
+        test = 1;
+
+    for(let i = test; i <= pageCount && i < props.currentPage + 4; i++)
     {
         pages.push(i);
     }
@@ -18,7 +23,7 @@ let Users = (props) => {
                     return <span
                         className={props.currentPage === p && styles.selectedPage}
                         onClick={() => { props.onPageChanged(p) }}
-                    >{p}</span>
+                    > {p} |</span>
                 })}
             </div>
             <div>
