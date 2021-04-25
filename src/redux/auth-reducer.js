@@ -8,7 +8,7 @@ let initialState = {
         login: null
     },
     errorLoginMessage: null,
-    isFetching: false
+    isAuth: false
 };
 
 const authReducer = (state = initialState, action) => {
@@ -16,7 +16,8 @@ const authReducer = (state = initialState, action) => {
         case SET_USER_DATA:
             return {
                 ...state,
-                data: {...action.data}
+                data: {...action.data},
+                isAuth: true
             }
         case SET_ERROR_LOGIN:
             debugger;

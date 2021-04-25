@@ -2,14 +2,16 @@ import classes from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
+    debugger;
     return (
         <header className={classes.header}>
             <img src="https://place-hold.it/75" />
 
             <div className={classes.loginBlock}>
-                <NavLink to={'/login'} >Login</NavLink>
+                {props.isAuth ? props.login :
+                <NavLink to={'/login'} >Login</NavLink>}
             </div>
-            <span>
+            {/* <span>
                 <i>myEmail:</i> <b>{props.userData.email}</b> -
             </span>
             <span>
@@ -21,7 +23,7 @@ const Header = (props) => {
 
             <div>
                 ErrorLogin: {props.errorLoginMessage}
-            </div>
+            </div> */}
         </header>
     );
 }

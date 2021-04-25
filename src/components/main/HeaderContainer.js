@@ -22,14 +22,14 @@ class HeaderContainer extends React.Component {
     render() {
         debugger;
         return (
-            <Header userData={this.props.userData} errorLoginMessage={this.props.errorLoginMessage}/>
+            <Header {...this.props}/>
         )
     }
 }
 
 let mapStateToProps = (state) => ({
-    userData: state.auth.data,
-    errorLoginMessage: state.auth.errorLoginMessage
+    isAuth: state.auth.isAuth,
+    login: state.auth.data.login
 })
 
 export default connect(mapStateToProps, {onSetUserData, onSetErrorLogin})(HeaderContainer);
