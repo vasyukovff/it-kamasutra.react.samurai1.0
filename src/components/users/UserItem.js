@@ -1,6 +1,6 @@
 import UserDefaultPhoto from '../../assets/images/user.png';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
+import { follow, unfollow } from '../../api/api';
 
 const UserItem = (props) => {
     return (
@@ -14,14 +14,8 @@ const UserItem = (props) => {
                         props.followed
                             ? <button onClick={() => {
 
-                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, 
-                                {
-                                    withCredentials: true,
-                                    headers: {
-                                        "API-KEY": "8cc572da-38e6-49ab-a5f6-ce1b84a913a5"
-                                    }
-                                }).then(response => {
-                                    if(response.data.resultCode === 0){
+                               unfollow(props.id).then(response => {
+                                    if(response.resultCode === 0){
                                         props.onUnfollow(props.id)
                                     }
                                 })
@@ -29,14 +23,8 @@ const UserItem = (props) => {
 
                             }}>Unfollow</button>
                             : <button onClick={() => {
-                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {}, 
-                                {
-                                    withCredentials: true,
-                                    headers: {
-                                        "API-KEY": "8cc572da-38e6-49ab-a5f6-ce1b84a913a5"
-                                    }
-                                }).then(response => {
-                                    if(response.data.resultCode === 0){
+                                follow(props.id).then(response => {
+                                    if(response.resultCode === 0){
                                         props.onFollow(props.id)
                                     }
                                 })

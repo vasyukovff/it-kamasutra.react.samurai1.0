@@ -24,7 +24,7 @@ class UsersContainer extends React.Component {
 
         getUsers(this.props.pageSize, page).then(response => {
             this.props.onSetIsFetching(false);
-            this.props.setUsers(response.data);
+            this.props.setUsers(response);
         })
     }
 
