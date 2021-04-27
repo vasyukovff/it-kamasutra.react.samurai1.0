@@ -24,3 +24,7 @@ export const follow = (userId) => {
             }
         }).then(response => response.data);
 }
+
+export const getProfile = (profileId) => {
+    return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${profileId}`).then(response => response.data);
+}
