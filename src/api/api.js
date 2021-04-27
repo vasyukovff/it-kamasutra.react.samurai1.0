@@ -1,12 +1,13 @@
 import axios from "axios"
 
+const baseUrl = 'https://social-network.samuraijs.com/api/1.0/';
 
 export const getUsers = (pageSize, page) => {
-    return axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${pageSize}&page=${page}`, { withCredentials: true }).then(response => response.data);
+    return axios.get(baseUrl + `users?count=${pageSize}&page=${page}`, { withCredentials: true }).then(response => response.data);
 }
 
 export const unfollow = (userId) => {
-    return axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`,
+    return axios.delete(baseUrl + `follow/${userId}`,
         {
             withCredentials: true,
             headers: {
@@ -16,7 +17,7 @@ export const unfollow = (userId) => {
 }
 
 export const follow = (userId) => {
-    return axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {},
+    return axios.post(baseUrl + `follow/${userId}`, {},
         {
             withCredentials: true,
             headers: {
@@ -26,5 +27,5 @@ export const follow = (userId) => {
 }
 
 export const getProfile = (profileId) => {
-    return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${profileId}`).then(response => response.data);
+    return axios.get(baseUrl + `profile/${profileId}`).then(response => response.data);
 }
