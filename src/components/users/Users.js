@@ -37,7 +37,12 @@ let Users = (props) => {
             </div>
             <div>
                 {
-                    props.users.map(user => { return <UserItem {...user} onFollow={props.onFollow} onUnfollow={props.onUnfollow} key={user.id} /> })
+                    props.users.map(user => { return <UserItem {...user} 
+                                                                followingInProgress={props.followingInProgress} 
+                                                                onSetIsFollowingProgress={props.onSetIsFollowingProgress}
+                                                                onFollow={props.onFollow} 
+                                                                onUnfollow={props.onUnfollow} 
+                                                                key={user.id} /> })
                 }
             </div>
         </>

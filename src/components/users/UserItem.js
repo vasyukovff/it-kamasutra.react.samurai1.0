@@ -12,21 +12,25 @@ const UserItem = (props) => {
                 <div>
                     {
                         props.followed
-                            ? <button onClick={() => {
+                            ? <button disabled={props.followingInProgress.some(id => id === props.id)} onClick={() => {
 
-                               unfollow(props.id).then(response => {
+                                props.onSetIsFollowingProgress(true, props.id);
+                                unfollow(props.id).then(response => {
                                     if(response.resultCode === 0){
                                         props.onUnfollow(props.id)
                                     }
+                                    props.onSetIsFollowingProgress(false, props.id);
                                 })
-                                props.onUnfollow(props.id)
 
                             }}>Unfollow</button>
-                            : <button onClick={() => {
+                            : <button disabled={props.followingInProgress.some(id => id === props.id)} onClick={() => {
+                                props.onSetIsFollowingProgress(true, props.id);
                                 follow(props.id).then(response => {
                                     if(response.resultCode === 0){
-                                        props.onFollow(props.id)
+                                        props.onFollow(props.id);
                                     }
+
+                                    props.onSetIsFollowingProgress(false, props.id);
                                 })
                                 
 
