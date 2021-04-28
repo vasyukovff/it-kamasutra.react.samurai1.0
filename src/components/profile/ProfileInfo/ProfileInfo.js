@@ -1,6 +1,5 @@
 import classes from './ProfileInfo.module.css';
 import Preloader from './../../common/preloader/Preloader';
-import { NavLink } from 'react-router-dom';
 
 const ProfileInfo = (props) => {
     if(!props.profile){

@@ -1,4 +1,3 @@
-import UserDefaultPhoto from '../../assets/images/user.png';
 import { NavLink } from 'react-router-dom';
 import { follow, unfollow } from '../../api/api';
 

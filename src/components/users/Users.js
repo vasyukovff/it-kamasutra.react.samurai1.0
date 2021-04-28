@@ -1,15 +1,6 @@
 import React from 'react';
 import styles from './Users.module.css';
 import UserItem from './UserItem';
-import axios from 'axios';
-
-
-// const onFollow = (userId) => {
-//     axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {withCredentials: true}).then(response => {
-//             debugger;
-//             props.OnFollow(userId);
-//         })
-// }
 
 let Users = (props) => {
     let pageCount = Math.ceil(props.totalCount / props.pageSize);

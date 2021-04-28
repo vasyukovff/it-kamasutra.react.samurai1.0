@@ -10,17 +10,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-// let mapDispatchToProps = (dispatch) => {
-//     return{
-//         onAddPost: () => {
-//             dispatch(CreateActionAddPost());
-//         },
-//         onTextareaOnChange: (text) => {
-//             dispatch(CreateActionChangeTextNewPost(text));
-//         }
-//     }
-// }
-
 const MyPostsContainer = connect(mapStateToProps, {onAddPost, onTextareaOnChange})(MyPosts);
 
 export default MyPostsContainer;
