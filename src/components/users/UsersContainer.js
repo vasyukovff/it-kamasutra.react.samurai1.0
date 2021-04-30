@@ -1,13 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-    onFollow,
-    onUnfollow,
-    setUsers,
     onSetPage,
-    onSetIsFetching,
     onSetIsFollowingProgress,
-    getUsersThunkCreator
+    getUsersThunkCreator,
+    followThunkCreator,
+    unfollowThunkCreator
         } from './../../redux/users-reducer';
 import Users from './Users';
 import Preloader from './../common/preloader/Preloader';
@@ -16,11 +14,11 @@ import Preloader from './../common/preloader/Preloader';
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.getUsers()
+        this.getUsers();
     }
 
     getUsers = (page = this.props.currentPage) => {
-        this.props.getUsersThunkCreator();
+        this.props.getUsers(this.props.pageSize, page);
     }
 
     onPageChanged = (pageNumber) => {
@@ -39,8 +37,7 @@ class UsersContainer extends React.Component {
                 followingInProgress={this.props.followingInProgress}
                 onPageChanged={this.onPageChanged}
                 onFollow={this.props.onFollow}
-                onUnfollow={this.props.onUnfollow}
-                onSetIsFollowingProgress={this.props.onSetIsFollowingProgress} />
+                onUnfollow={this.props.onUnfollow} />
         </>
     }
 }
@@ -58,11 +55,9 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps,
     {
-        onFollow,
-        onUnfollow,
-        setUsers,
         onSetPage,
-        onSetIsFetching,
         onSetIsFollowingProgress,
-        getUsersThunkCreator
+        getUsers: getUsersThunkCreator,
+        onFollow: followThunkCreator,
+        onUnfollow: unfollowThunkCreator
     })(UsersContainer);

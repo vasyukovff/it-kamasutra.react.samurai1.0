@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getProfile } from '../../api/api';
-import { onSetProfile, onTextareaOnChange, onAddPost } from './../../redux/profile-reducer';
+import { getProfileThunkCreator, onTextareaOnChange, onAddPost } from './../../redux/profile-reducer';
 import Profile from './Profile';
 
 class ProfileContainer extends React.Component {
@@ -12,9 +12,7 @@ class ProfileContainer extends React.Component {
         if (!userId)
             userId = 2;
 
-        getProfile(userId).then(response => {
-            this.props.onSetProfile(response);
-        })
+        this.props.getProfileThunkCreator(userId);
 
     }
 
@@ -33,4 +31,4 @@ let mapStateToProps = (state) => ({
 
 let WithRouterComponent = withRouter(ProfileContainer);
 
-export default connect(mapStateToProps, { onAddPost, onTextareaOnChange, onSetProfile })(WithRouterComponent);
+export default connect(mapStateToProps, { onAddPost, onTextareaOnChange, getProfileThunkCreator })(WithRouterComponent);

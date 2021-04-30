@@ -1,3 +1,5 @@
+import { UserAPI } from "../api/api";
+
 const ADD_POST = 'ADD-POST';
 const CHANGE_TEXT_NEW_POST = 'CHANGE-TEXT-NEW-POST';
 const SET_PROFILE = 'SET-PROFILE';
@@ -55,5 +57,13 @@ export const onSetProfile = (profile) => ({
     type: SET_PROFILE,
     profile: profile
 })
+
+export const getProfileThunkCreator = (profileId) => {
+    return (dispatch) => {
+        UserAPI.getProfile(profileId).then(response => {
+            dispatch(onSetProfile(response));
+        })
+    }
+}
 
 export default profileReducer;
