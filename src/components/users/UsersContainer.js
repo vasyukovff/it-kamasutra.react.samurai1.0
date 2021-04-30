@@ -6,11 +6,11 @@ import {
     setUsers,
     onSetPage,
     onSetIsFetching,
-    onSetIsFollowingProgress
+    onSetIsFollowingProgress,
+    getUsersThunkCreator
         } from './../../redux/users-reducer';
 import Users from './Users';
 import Preloader from './../common/preloader/Preloader';
-import { getUsers } from '../../api/api';
 
 
 class UsersContainer extends React.Component {
@@ -20,12 +20,7 @@ class UsersContainer extends React.Component {
     }
 
     getUsers = (page = this.props.currentPage) => {
-        this.props.onSetIsFetching(true);
-
-        getUsers(this.props.pageSize, page).then(response => {
-            this.props.onSetIsFetching(false);
-            this.props.setUsers(response);
-        })
+        this.props.getUsersThunkCreator();
     }
 
     onPageChanged = (pageNumber) => {
@@ -68,5 +63,6 @@ export default connect(mapStateToProps,
         setUsers,
         onSetPage,
         onSetIsFetching,
-        onSetIsFollowingProgress
+        onSetIsFollowingProgress,
+        getUsersThunkCreator
     })(UsersContainer);
