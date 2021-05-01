@@ -5,12 +5,6 @@ import MessageItem from './messageItem/MessageItem';
 import { Redirect } from 'react-router-dom';
 
 const Dialogs = (props) => {
-    debugger;
-    if(!props.isAuth)
-    {
-        return <Redirect to='/login' />
-    }
-
     const btnAddMessage = () => {
         props.onAddMessage();
     }

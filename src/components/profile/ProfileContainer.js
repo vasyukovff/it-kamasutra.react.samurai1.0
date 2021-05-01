@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import { getProfileThunkCreator, onTextareaOnChange, onAddPost } from './../../redux/profile-reducer';
 import Profile from './Profile';
+import { withAuthRedirect } from './../../hoc/withAuthRedirect';
 
 class ProfileContainer extends React.Component {
 
@@ -15,13 +16,11 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-        if(!this.props.isAuth) return <Redirect to="/login" />
-            
-        return <>
+        return (
             <div>
                 <Profile {...this.props} profile={this.props.profile} />
             </div>
-        </>
+        );
     }
 }
 
@@ -32,4 +31,6 @@ let mapStateToProps = (state) => ({
 
 let WithRouterComponent = withRouter(ProfileContainer);
 
-export default connect(mapStateToProps, { onAddPost, onTextareaOnChange, getProfileThunkCreator })(WithRouterComponent);
+let withAuthRedirectComponent = withAuthRedirect(WithRouterComponent);
+
+export default connect(mapStateToProps, { onAddPost, onTextareaOnChange, getProfileThunkCreator })(withAuthRedirectComponent);
