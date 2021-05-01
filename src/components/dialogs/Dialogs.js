@@ -2,8 +2,14 @@ import classes from './Dialogs.module.css';
 import React from 'react';
 import DialogItem from './dialogItem/DialogItem';
 import MessageItem from './messageItem/MessageItem';
+import { Redirect } from 'react-router-dom';
 
 const Dialogs = (props) => {
+    debugger;
+    if(!props.isAuth)
+    {
+        return <Redirect to='/login' />
+    }
 
     const btnAddMessage = () => {
         props.onAddMessage();
@@ -14,6 +20,7 @@ const Dialogs = (props) => {
     }
 
     return (
+
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
                 {
