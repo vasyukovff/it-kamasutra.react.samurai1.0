@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { getProfileThunkCreator, onTextareaOnChange, onAddPost } from './../../redux/profile-reducer';
 import Profile from './Profile';
 import { withAuthRedirect } from './../../hoc/withAuthRedirect';
