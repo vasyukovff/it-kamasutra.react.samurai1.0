@@ -7,8 +7,6 @@ const ProfileInfo = (props) => {
         return <Preloader />
     }
 
-    debugger;
-
     return (
         <div>
             <div>
@@ -17,7 +15,7 @@ const ProfileInfo = (props) => {
             <div className={classes.descriptionBlock}>
                 <img src={props.profile.photos.large}/>
                 <div>{props.profile.fullName}</div>
-                <ProfileStatus status='This my status!'/>
+                <ProfileStatus status={props.status} setStatus={props.setStatus} />
                 <a href={`https://${props.profile.contacts.vk}`} target='_blank'> VK </a>
             </div>
         </div>
